@@ -1,10 +1,11 @@
 {
   "name": "tkw_2551050023_binh",
   "version": "1.0.0",
-  "description": "Chủ đề: Ban hang truc tuyen Màu thương hiệu : màu tím đậm #4e2a84 màu nhấn: xanh dương nhạt #836eaa màu chữ : đen màu chữ phụ: màu nền : trắng viền: phông tiêu đề: phông nội dung: H1/H2/H3: padding dọc: bo góc thẻ:",
+  "description": "Website nap va gach the tu dong.",
   "main": "index.js",
   "scripts": {
     "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
