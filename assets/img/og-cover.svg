@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="napthe1s — cổng nạp thẻ tự động cho đại lý">
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <rect x="0" y="0" width="1200" height="12" fill="#14705a"/>
+
+  <rect x="80" y="150" width="72" height="72" rx="16" fill="#14705a"/>
+  <path d="M120 163l-17 27h11l-3 20 19-28h-12l2-19z" fill="#ffffff"/>
+
+  <text x="172" y="203" font-family="Be Vietnam Pro, system-ui, sans-serif" font-size="40" font-weight="700" fill="#12211d">napthe1s</text>
+
+  <text x="80" y="320" font-family="Be Vietnam Pro, system-ui, sans-serif" font-size="60" font-weight="800" fill="#12211d">Nạp xong trong 8 giây,</text>
+  <text x="80" y="394" font-family="Be Vietnam Pro, system-ui, sans-serif" font-size="60" font-weight="800" fill="#14705a">chiết khấu về ví ngay</text>
+
+  <text x="80" y="464" font-family="Inter, system-ui, sans-serif" font-size="30" fill="#5c6f69">Cổng nạp thẻ tự động cho đại lý · 3 nhà mạng · 12 hãng game</text>
+
+  <rect x="80" y="508" width="360" height="60" rx="30" fill="#14705a"/>
+  <text x="260" y="547" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="600" fill="#ffffff" text-anchor="middle">Mở tài khoản miễn phí</text>
+</svg>
