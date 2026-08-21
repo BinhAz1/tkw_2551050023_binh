@@ -222,8 +222,211 @@
       </div>
     </section>
 
+    <!-- Gạch thẻ cào -->
+    <section id="gach-the" aria-labelledby="gach-the-title">
+      <div class="section">
+        <h2 id="gach-the-title" class="max-w-2xl font-display text-3xl font-bold tracking-tight lg:text-4xl">
+          Gạch thẻ cào
+        </h2>
+        <p class="mt-4 max-w-2xl text-muted">
+          Nhập mã nạp và serial rồi bấm gửi. Hệ thống tự dò nhà mạng, tiền vào ví sau 30 giây.
+        </p>
+
+        <form class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <label class="field-label" for="gt-nha-mang">Nhà mạng</label>
+            <select class="field-input" id="gt-nha-mang" name="nhaMang">
+              <option value="garena">Garena (auto)</option>
+              <option value="viettel">Viettel</option>
+              <option value="vinaphone">Vinaphone</option>
+              <option value="mobifone">Mobifone</option>
+              <option value="zing">Zing</option>
+              <option value="vcoin">Vcoin</option>
+              <option value="appota">Appota</option>
+              <option value="funcard">Funcard</option>
+              <option value="scoin">Scoin</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="field-label" for="gt-ma-nap">Mã nạp</label>
+            <input class="field-input" id="gt-ma-nap" name="maNap" type="text"
+                   inputmode="numeric" autocomplete="off" maxlength="20">
+          </div>
+
+          <div>
+            <label class="field-label" for="gt-serial">Serial</label>
+            <input class="field-input" id="gt-serial" name="serial" type="text"
+                   inputmode="numeric" autocomplete="off" maxlength="20">
+          </div>
+
+          <div>
+            <label class="field-label" for="gt-menh-gia">Mệnh giá</label>
+            <select class="field-input" id="gt-menh-gia" name="menhGia">
+              <option value="">— Chọn mệnh giá —</option>
+              <option value="10000">10.000đ</option>
+              <option value="20000">20.000đ</option>
+              <option value="50000">50.000đ</option>
+              <option value="100000">100.000đ</option>
+              <option value="200000">200.000đ</option>
+              <option value="500000">500.000đ</option>
+            </select>
+          </div>
+
+          <div class="flex flex-wrap gap-3 sm:col-span-2 lg:col-span-4">
+            <button type="submit" class="btn btn-primary">Gửi thẻ cào</button>
+            <button type="button" class="btn btn-ghost">Thêm thẻ khác</button>
+          </div>
+        </form>
+
+        <h3 class="mt-16 font-display text-xl font-bold">Bảng phí đổi thẻ cào</h3>
+        <p class="mt-2 text-sm text-muted lg:hidden">Vuốt ngang để xem hết bảng.</p>
+
+        <div class="mt-6 overflow-x-auto rounded-card border border-line">
+          <table class="min-w-[720px] w-full border-collapse bg-surface text-left text-sm">
+            <caption class="sr-only">Phí đổi thẻ cào theo nhóm khách hàng và mệnh giá</caption>
+            <thead>
+              <tr class="border-b border-line">
+                <th scope="col" class="px-5 py-4 font-display font-bold">Nhóm</th>
+                <th scope="col" class="px-5 py-4 font-display font-bold">10.000đ</th>
+                <th scope="col" class="px-5 py-4 font-display font-bold">20.000đ</th>
+                <th scope="col" class="px-5 py-4 font-display font-bold">50.000đ</th>
+                <th scope="col" class="px-5 py-4 font-display font-bold">100.000đ</th>
+                <th scope="col" class="px-5 py-4 font-display font-bold">200.000đ</th>
+                <th scope="col" class="px-5 py-4 font-display font-bold">500.000đ</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-line">
+                <th scope="row" class="px-5 py-4 font-semibold">Chưa xác thực</th>
+                <td class="px-5 py-4 text-muted">15,5%</td>
+                <td class="px-5 py-4 text-muted">15,0%</td>
+                <td class="px-5 py-4 text-muted">14,5%</td>
+                <td class="px-5 py-4 text-muted">14,0%</td>
+                <td class="px-5 py-4 text-muted">14,0%</td>
+                <td class="px-5 py-4 text-muted">13,5%</td>
+              </tr>
+              <tr class="border-b border-line">
+                <th scope="row" class="px-5 py-4 font-semibold">Đã xác thực</th>
+                <td class="px-5 py-4 text-muted">14,0%</td>
+                <td class="px-5 py-4 text-muted">13,5%</td>
+                <td class="px-5 py-4 text-muted">13,0%</td>
+                <td class="px-5 py-4 text-muted">12,5%</td>
+                <td class="px-5 py-4 text-muted">12,5%</td>
+                <td class="px-5 py-4 text-muted">12,0%</td>
+              </tr>
+              <tr>
+                <th scope="row" class="px-5 py-4 font-semibold">Đại lý hạng Vàng</th>
+                <td class="px-5 py-4 font-semibold text-accent-500">12,5%</td>
+                <td class="px-5 py-4 font-semibold text-accent-500">12,0%</td>
+                <td class="px-5 py-4 font-semibold text-accent-500">11,5%</td>
+                <td class="px-5 py-4 font-semibold text-accent-500">11,0%</td>
+                <td class="px-5 py-4 font-semibold text-accent-500">11,0%</td>
+                <td class="px-5 py-4 font-semibold text-accent-500">10,5%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mua mã thẻ -->
+    <section id="mua-the" aria-labelledby="mua-the-title" class="bg-surface-alt">
+      <div class="section">
+        <h2 id="mua-the-title" class="max-w-2xl font-display text-3xl font-bold tracking-tight lg:text-4xl">
+          Mua mã thẻ
+        </h2>
+        <p class="mt-4 max-w-2xl text-muted">
+          Chọn loại thẻ, chọn mệnh giá, thanh toán bằng số dư ví. Mã seri và mã thẻ hiện ngay trên màn hình.
+        </p>
+
+        <ul class="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+          <li>
+            <button type="button" class="card flex w-full flex-col items-center gap-3 hover:border-brand-600">
+              <span class="flex h-12 items-center justify-center">
+                <img src="assets/img/viettel.png" alt="" class="max-h-full w-auto object-contain" width="165" height="86">
+              </span>
+              <span class="text-sm font-semibold">Thẻ Viettel</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="card flex w-full flex-col items-center gap-3 hover:border-brand-600">
+              <span class="flex h-12 items-center justify-center">
+                <img src="assets/img/vinaphone.png" alt="" class="max-h-full w-auto object-contain" width="164" height="87">
+              </span>
+              <span class="text-sm font-semibold">Thẻ Vinaphone</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="card flex w-full flex-col items-center gap-3 hover:border-brand-600">
+              <span class="flex h-12 items-center justify-center">
+                <img src="assets/img/mobifone.png" alt="" class="max-h-full w-auto object-contain" width="167" height="84">
+              </span>
+              <span class="text-sm font-semibold">Thẻ Mobifone</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="card flex w-full flex-col items-center gap-3 hover:border-brand-600">
+              <span class="flex h-12 items-center justify-center">
+                <img src="assets/img/vietnamobile.jpg" alt="" class="max-h-full w-auto object-contain" width="500" height="248">
+              </span>
+              <span class="text-sm font-semibold">Thẻ Vietnamobile</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="card flex w-full flex-col items-center gap-3 hover:border-brand-600">
+              <span class="flex h-12 items-center justify-center">
+                <img src="assets/img/garena.png" alt="" class="max-h-full w-auto object-contain" width="160" height="80">
+              </span>
+              <span class="text-sm font-semibold">Thẻ Garena</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="card flex w-full flex-col items-center gap-3 hover:border-brand-600">
+              <span class="flex h-12 items-center justify-center">
+                <img src="assets/img/zing.png" alt="" class="max-h-full w-auto object-contain" width="160" height="80">
+              </span>
+              <span class="text-sm font-semibold">Thẻ Zing</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="card flex w-full flex-col items-center gap-3 hover:border-brand-600">
+              <span class="flex h-12 items-center justify-center">
+                <img src="assets/img/vcoin.png" alt="" class="max-h-full w-auto object-contain" width="160" height="80">
+              </span>
+              <span class="text-sm font-semibold">Thẻ Vcoin</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="card flex w-full flex-col items-center gap-3 hover:border-brand-600">
+              <span class="flex h-12 items-center justify-center">
+                <img src="assets/img/appota.png" alt="" class="max-h-full w-auto object-contain" width="160" height="80">
+              </span>
+              <span class="text-sm font-semibold">Thẻ Appota</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="card flex w-full flex-col items-center gap-3 hover:border-brand-600">
+              <span class="flex h-12 items-center justify-center">
+                <img src="assets/img/funcard.png" alt="" class="max-h-full w-auto object-contain" width="165" height="86">
+              </span>
+              <span class="text-sm font-semibold">Thẻ Funcard</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="card flex w-full flex-col items-center gap-3 hover:border-brand-600">
+              <span class="flex h-12 items-center justify-center">
+                <img src="assets/img/scoin.jpg" alt="" class="max-h-full w-auto object-contain" width="560" height="292">
+              </span>
+              <span class="text-sm font-semibold">Thẻ Scoin</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </section>
+
     <!-- Cách hoạt động -->
-    <section id="cach-hoat-dong" aria-labelledby="cach-hoat-dong-title">
+    <section id="cach-hoat-dong" aria-labelledby="cach-hoat-dong-title" class="bg-surface-alt">
       <div class="section">
         <h2 id="cach-hoat-dong-title" class="max-w-2xl font-display text-3xl font-bold tracking-tight lg:text-4xl">
           Ba bước để nạp đơn đầu tiên
