@@ -135,11 +135,11 @@
 
     <!-- Đại lý đang dùng -->
     <section aria-labelledby="dai-ly-title">
-      <div class="section py-14 lg:py-16">
+      <div class="section py-20 lg:py-24">
         <h2 id="dai-ly-title" class="text-center text-sm font-semibold uppercase tracking-wide text-muted">
           Những đại lý đang nạp qua napthe1s
         </h2>
-        <ul class="mt-8 grid grid-cols-2 gap-6 text-center font-display text-base font-bold text-muted sm:grid-cols-3 lg:grid-cols-6">
+        <ul class="mt-8 flex flex-wrap items-center justify-center gap-x-12 gap-y-6 font-display text-base font-bold text-muted">
           <li>Net Tuấn Anh</li>
           <li>Tạp hoá Nga</li>
           <li>Thẻ game Phát</li>
@@ -157,133 +157,206 @@
           Năm dịch vụ chính
         </h2>
 
-        <ul class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <ul class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <li id="mua-ma-the" class="card scroll-mt-24">
-            <h3 class="font-display text-lg font-bold">Mua mã thẻ</h3>
+            <span class="grid h-11 w-11 place-items-center rounded-lg bg-brand-50 text-brand-600">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/>
+              </svg>
+            </span>
+            <h3 class="mt-4 font-display text-lg font-bold">Mua mã thẻ</h3>
             <p class="mt-2 text-muted">Chọn nhà mạng và mệnh giá, thanh toán xong nhận ngay mã seri và mã thẻ trên màn hình.</p>
           </li>
           <li id="doi-ma-the" class="card scroll-mt-24">
-            <h3 class="font-display text-lg font-bold">Đổi mã thẻ</h3>
+            <span class="grid h-11 w-11 place-items-center rounded-lg bg-brand-50 text-brand-600">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 9h14l-4-4"/><path d="M21 15H7l4 4"/>
+              </svg>
+            </span>
+            <h3 class="mt-4 font-display text-lg font-bold">Đổi mã thẻ</h3>
             <p class="mt-2 text-muted">Gửi mã thẻ chưa dùng để quy đổi thành tiền vào ví. Chiết khấu theo hạng khách hàng chưa xác minh/đã xác minh/ đại lý, hạng càng cao chiết khấu càng thấp.</p>
           </li>
           <li id="nap-tien" class="card scroll-mt-24">
-            <h3 class="font-display text-lg font-bold">Nạp tiền</h3>
+            <span class="grid h-11 w-11 place-items-center rounded-lg bg-brand-50 text-brand-600">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3v10"/><path d="M8 9l4 4 4-4"/><path d="M3 15v4a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4"/>
+              </svg>
+            </span>
+            <h3 class="mt-4 font-display text-lg font-bold">Nạp tiền</h3>
             <p class="mt-2 text-muted">Chuyển khoản ngân hàng hoặc quét mã QR, ví cộng tự động sau 1–2 phút. Quá thời gian 5p vui lòng nhắn hỗ trợ.</p>
           </li>
           <li id="rut-tien" class="card scroll-mt-24">
-            <h3 class="font-display text-lg font-bold">Rút tiền</h3>
+            <span class="grid h-11 w-11 place-items-center rounded-lg bg-brand-50 text-brand-600">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 21V11"/><path d="M8 15l4-4 4 4"/><path d="M3 9V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4"/>
+              </svg>
+            </span>
+            <h3 class="mt-4 font-display text-lg font-bold">Rút tiền</h3>
             <p class="mt-2 text-muted">Rút về tài khoản ngân hàng, ví điện tử. Đơn sẽ được xử lý trong 3 giờ, chậm nhất trong 24 giờ làm việc.</p>
           </li>
           <li id="nap-the-cao" class="card scroll-mt-24">
-            <h3 class="font-display text-lg font-bold">Nạp thẻ cào</h3>
+            <span class="grid h-11 w-11 place-items-center rounded-lg bg-brand-50 text-brand-600">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="6" y="2" width="12" height="20" rx="2"/><path d="M13 7l-3 5h4l-3 5"/>
+              </svg>
+            </span>
+            <h3 class="mt-4 font-display text-lg font-bold">Nạp thẻ cào</h3>
             <p class="mt-2 text-muted">Nhập số điện thoại và mệnh giá, hệ thống nạp thẳng vào thuê bao trong 30 giây.</p>
           </li>
         </ul>
       </div>
     </section>
 
+    <!-- Cách hoạt động -->
+    <section id="cach-hoat-dong" aria-labelledby="cach-hoat-dong-title">
+      <div class="section">
+        <h2 id="cach-hoat-dong-title" class="max-w-2xl font-display text-3xl font-bold tracking-tight lg:text-4xl">
+          Ba bước để nạp đơn đầu tiên
+        </h2>
+
+        <ol class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <li class="card flex flex-col gap-3">
+            <span class="font-display text-sm font-extrabold tracking-wide text-brand-600">01</span>
+            <h3 class="font-display text-lg font-bold">Tạo tài khoản</h3>
+            <p class="text-muted">Đăng ký bằng số điện thoại rồi xác minh mã OTP. Mất khoảng 2 phút, chưa phải nạp đồng nào.</p>
+          </li>
+          <li class="card flex flex-col gap-3">
+            <span class="font-display text-sm font-extrabold tracking-wide text-brand-600">02</span>
+            <h3 class="font-display text-lg font-bold">Nạp tiền vào ví</h3>
+            <p class="text-muted">Chuyển khoản hoặc quét mã QR, tối thiểu 10.000đ. Ví cộng tự động sau 1–2 phút.</p>
+          </li>
+          <li class="card flex flex-col gap-3">
+            <span class="font-display text-sm font-extrabold tracking-wide text-brand-600">03</span>
+            <h3 class="font-display text-lg font-bold">Chọn dịch vụ và bấm</h3>
+            <p class="text-muted">Mua mã thẻ, đổi thẻ hay nạp thẻ cào. Tiền trừ thẳng trong ví, đơn xong trong 30 giây.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
     <!-- Số liệu -->
-    <section id="so-lieu" aria-labelledby="so-lieu-title">
+    <section id="so-lieu" aria-labelledby="so-lieu-title" class="bg-surface-alt">
       <div class="section">
         <h2 id="so-lieu-title" class="max-w-2xl font-display text-3xl font-bold tracking-tight lg:text-4xl">
           Napthe1s năm 2025
         </h2>
 
-        <dl class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          <div>
-            <dt class="text-sm text-muted">Thời gian nạp trung bình</dt>
-            <dd class="mt-1 font-display text-4xl font-extrabold text-brand-600">8-30 giây</dd>
+        <dl class="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-line">
+          <div class="flex flex-col text-center lg:px-6">
+            <dt class="order-2 mt-2 text-sm text-muted">Thời gian nạp trung bình</dt>
+            <dd class="font-display text-4xl font-extrabold text-brand-600">8-30 giây</dd>
           </div>
-          <div>
-            <dt class="text-sm text-muted">Đại lý/khách hàng đang hoạt động</dt>
-            <dd class="mt-1 font-display text-4xl font-extrabold text-brand-600">2.800</dd>
+          <div class="flex flex-col text-center lg:px-6">
+            <dt class="order-2 mt-2 text-sm text-muted">Đại lý/khách hàng đang hoạt động</dt>
+            <dd class="font-display text-4xl font-extrabold text-brand-600">2.800</dd>
           </div>
-          <div>
-            <dt class="text-sm text-muted">Đơn thành công ngay lần đầu</dt>
-            <dd class="mt-1 font-display text-4xl font-extrabold text-brand-600">99,4%</dd>
+          <div class="flex flex-col text-center lg:px-6">
+            <dt class="order-2 mt-2 text-sm text-muted">Đơn thành công ngay lần đầu</dt>
+            <dd class="font-display text-4xl font-extrabold text-brand-600">99,4%</dd>
           </div>
-          <div>
-            <dt class="text-sm text-muted">Nhà cung cấp đã nối</dt>
-            <dd class="mt-1 font-display text-4xl font-extrabold text-brand-600">15</dd>
+          <div class="flex flex-col text-center lg:px-6">
+            <dt class="order-2 mt-2 text-sm text-muted">Nhà cung cấp đã nối</dt>
+            <dd class="font-display text-4xl font-extrabold text-brand-600">15</dd>
           </div>
         </dl>
       </div>
     </section>
 
     <!-- Cảm nhận -->
-    <section aria-labelledby="cam-nhan-title" class="bg-surface-alt">
+    <section aria-labelledby="cam-nhan-title">
       <div class="section">
         <h2 id="cam-nhan-title" class="max-w-2xl font-display text-3xl font-bold tracking-tight lg:text-4xl">
           Đại lý/khách hàng nói gì về Napthe1s
         </h2>
 
-        <ul class="mt-12 grid gap-6 lg:grid-cols-3">
+        <ul class="mt-14 grid items-stretch gap-6 lg:grid-cols-3">
           <li class="card">
-            <blockquote class="text-muted">
-              “Khách đứng chờ nạp game lâu không vui. Giờ bấm phát xong luôn, không ai phải đợi tới lượt, hỗ trợ nạp nhiều thẻ cùng lúc.”
-            </blockquote>
-            <p class="mt-4 text-sm font-semibold">Anh Tuấn — tiệm net 40 máy, Tân Phú</p>
+            <figure class="flex h-full flex-col gap-4">
+              <blockquote class="text-muted">
+                “Khách đứng chờ nạp game lâu không vui. Giờ bấm phát xong luôn, không ai phải đợi tới lượt, hỗ trợ nạp nhiều thẻ cùng lúc.”
+              </blockquote>
+              <figcaption class="mt-auto text-sm">
+                <span class="font-semibold text-ink">Anh Tuấn</span>
+                <cite class="mt-1 block not-italic text-muted">Tiệm net 40 máy, Tân Phú</cite>
+              </figcaption>
+            </figure>
           </li>
           <li class="card">
-            <blockquote class="text-muted">
-              “Giá thẻ nhập chiết khấu cao, giá rẻ hơn nhiều so với trước đây, lợi nhuận bán thẻ nhiều hơn.”
-            </blockquote>
-            <p class="mt-4 text-sm font-semibold">Chị Nga — tạp hoá, Hóc Môn</p>
+            <figure class="flex h-full flex-col gap-4">
+              <blockquote class="text-muted">
+                “Giá thẻ nhập chiết khấu cao, giá rẻ hơn nhiều so với trước đây, lợi nhuận bán thẻ nhiều hơn.”
+              </blockquote>
+              <figcaption class="mt-auto text-sm">
+                <span class="font-semibold text-ink">Chị Nga</span>
+                <cite class="mt-1 block not-italic text-muted">Tạp hoá, Hóc Môn</cite>
+              </figcaption>
+            </figure>
           </li>
           <li class="card">
-            <blockquote class="text-muted">
-              “Website mình nối API mất một buổi chiều. Tài liệu ngắn, đọc xong là làm được luôn.”
-            </blockquote>
-            <p class="mt-4 text-sm font-semibold">Anh Phát — bán thẻ online, Cần Thơ</p>
+            <figure class="flex h-full flex-col gap-4">
+              <blockquote class="text-muted">
+                “Website mình nối API mất một buổi chiều. Tài liệu ngắn, đọc xong là làm được luôn.”
+              </blockquote>
+              <figcaption class="mt-auto text-sm">
+                <span class="font-semibold text-ink">Anh Phát</span>
+                <cite class="mt-1 block not-italic text-muted">Bán thẻ online, Cần Thơ</cite>
+              </figcaption>
+            </figure>
           </li>
         </ul>
       </div>
     </section>
 
     <!-- Hạng đại lý -->
-    <section id="chiet-khau" aria-labelledby="chiet-khau-title">
+    <section id="chiet-khau" aria-labelledby="chiet-khau-title" class="bg-surface-alt">
       <div class="section">
         <h2 id="chiet-khau-title" class="max-w-2xl font-display text-3xl font-bold tracking-tight lg:text-4xl">
-          Nâng hạng đại lý chiết khấu càng cao. 
+          Nâng hạng đại lý chiết khấu càng cao.
         </h2>
 
-        <ul class="mt-12 grid gap-6 lg:grid-cols-3">
+        <ul class="mt-14 grid items-stretch gap-6 lg:grid-cols-3">
 
-          <li class="card flex flex-col">
+          <li class="card flex h-full flex-col gap-4">
             <h3 class="font-display text-lg font-bold">Khách hàng</h3>
-            <p class="mt-2 font-display text-3xl font-extrabold">0đ</p>
-            <p class="mt-1 text-sm text-muted">Chiết khấu <span class="font-semibold text-accent-500">3,2%</span> mỗi đơn</p>
-            <ul class="mt-6 flex-1 space-y-2 text-sm text-muted">
+            <div>
+              <p class="font-display text-3xl font-extrabold">0đ</p>
+              <p class="mt-1 text-sm text-muted">Chiết khấu <span class="font-semibold text-accent-500">3,2%</span> mỗi đơn</p>
+            </div>
+            <ul class="space-y-2 text-sm text-muted">
               <li>Nạp không giới hạn số đơn</li>
               <li>1 tài khoản đăng nhập</li>
               <li>Nạp tối thiểu 10.000đ vào ví</li>
             </ul>
-            <a href="#dang-ky" class="btn btn-ghost mt-6">Mở miễn phí</a>
+            <a href="#dang-ky" class="btn btn-ghost mt-auto">Mở miễn phí</a>
           </li>
 
-          <li class="card flex flex-col border-brand-600 ring-1 ring-brand-600">
-            <p class="mb-3 inline-flex w-fit rounded-pill bg-accent-400 px-3 py-1 text-xs font-bold text-ink">Nhiều đại lý chọn nhất</p>
+          <li class="card relative flex h-full flex-col gap-4 ring-2 ring-brand-600">
+            <span class="badge absolute -top-3 left-6 bg-brand-600 text-white">Nhiều đại lý chọn nhất</span>
             <h3 class="font-display text-lg font-bold">Bạc</h3>
-            <p class="mt-2 font-display text-3xl font-extrabold">199.000đ<span class="text-base font-medium text-muted">/tháng</span></p>
-            <p class="mt-1 text-sm text-muted">Chiết khấu <span class="font-semibold text-accent-500">4,1%</span> mỗi đơn</p>
-            <ul class="mt-6 flex-1 space-y-2 text-sm text-muted">
+            <div>
+              <p class="font-display text-3xl font-extrabold">199.000đ<span class="text-base font-medium text-muted">/tháng</span></p>
+              <p class="mt-1 text-sm text-muted">Chiết khấu <span class="font-semibold text-accent-500">4,1%</span> mỗi đơn</p>
+            </div>
+            <ul class="space-y-2 text-sm text-muted">
               <li>Mở API cho website riêng</li>
               <li>3 tài khoản nhân viên</li>
               <li>Xuất sổ giao dịch ra CSV</li>
             </ul>
-            <a href="#dang-ky" class="btn btn-primary mt-6">Chọn hạng này</a>
+            <a href="#dang-ky" class="btn btn-primary mt-auto">Chọn hạng này</a>
           </li>
 
-          <li class="card flex flex-col">
+          <li class="card flex h-full flex-col gap-4">
             <h3 class="font-display text-lg font-bold">Vàng</h3>
-            <p class="mt-2 font-display text-3xl font-extrabold">599.000đ<span class="text-base font-medium text-muted">/tháng</span></p>
-            <p class="mt-1 text-sm text-muted">Chiết khấu <span class="font-semibold text-accent-500">4,8%</span> mỗi đơn</p>
-            <ul class="mt-6 flex-1 space-y-2 text-sm text-muted">
+            <div>
+              <p class="font-display text-3xl font-extrabold">599.000đ<span class="text-base font-medium text-muted">/tháng</span></p>
+              <p class="mt-1 text-sm text-muted">Chiết khấu <span class="font-semibold text-accent-500">4,8%</span> mỗi đơn</p>
+            </div>
+            <ul class="space-y-2 text-sm text-muted">
               <li>API không giới hạn lượt gọi</li>
               <li>15 tài khoản nhân viên</li>
               <li>Hỗ trợ riêng, trả lời trong 30 phút</li>
             </ul>
-            <a href="#dang-ky" class="btn btn-ghost mt-6">Liên hệ tư vấn</a>
+            <a href="#dang-ky" class="btn btn-ghost mt-auto">Liên hệ tư vấn</a>
           </li>
 
         </ul>
@@ -291,13 +364,18 @@
     </section>
 
     <!-- Câu hỏi thường gặp -->
-    <section id="cau-hoi" aria-labelledby="cau-hoi-title" class="bg-surface-alt">
-      <div class="section">
-        <h2 id="cau-hoi-title" class="max-w-2xl font-display text-3xl font-bold tracking-tight lg:text-4xl">
-          Câu hỏi thường gặp
-        </h2>
+    <section id="cau-hoi" aria-labelledby="cau-hoi-title">
+      <div class="section grid gap-12 lg:grid-cols-[1fr_2.4fr]">
+        <div>
+          <h2 id="cau-hoi-title" class="font-display text-3xl font-bold tracking-tight lg:text-4xl">
+            Câu hỏi thường gặp
+          </h2>
+          <p class="mt-4 text-muted">
+            Chưa thấy điều mình cần? Nhắn hỗ trợ qua số 097 123 4567, trả lời trong giờ hành chính.
+          </p>
+        </div>
 
-        <ul class="mt-12 grid gap-6 lg:grid-cols-2">
+        <ul class="grid gap-4 sm:grid-cols-2">
           <li class="card">
             <h3 class="font-display text-lg font-bold">Nạp bao lâu thì tiền vào máy khách?</h3>
             <p class="mt-2 text-muted">Trung bình 8 giây. Nếu quá 60 giây mà nhà mạng chưa xác nhận, hệ thống tự huỷ đơn và hoàn tiền về ví khách hàng/đại lý.</p>
@@ -349,7 +427,7 @@
 
   <!-- Footer -->
   <footer class="bg-brand-900 text-muted-invert">
-    <div class="section py-14 lg:py-16">
+    <div class="section py-20 lg:py-24">
       <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
 
         <div>
@@ -357,8 +435,8 @@
           <p class="mt-3 text-sm">Cổng nạp thẻ và gạch thẻ tự động dành cho đại lý bán lẻ tại Việt Nam.</p>
         </div>
 
-        <nav aria-label="Sản phẩm">
-          <h3 class="font-display text-sm font-bold uppercase tracking-wide text-ink-invert">Sản phẩm</h3>
+        <nav aria-labelledby="footer-san-pham-title">
+          <h3 id="footer-san-pham-title" class="font-display text-sm font-bold uppercase tracking-wide text-ink-invert">Sản phẩm</h3>
           <ul class="mt-3 space-y-2 text-sm">
             <li><a href="#dich-vu" class="hover:text-ink-invert">Dịch vụ</a></li>
             <li><a href="#chiet-khau" class="hover:text-ink-invert">Đại lý</a></li>
@@ -366,8 +444,8 @@
           </ul>
         </nav>
 
-        <nav aria-label="Hỗ trợ">
-          <h3 class="font-display text-sm font-bold uppercase tracking-wide text-ink-invert">Hỗ trợ</h3>
+        <nav aria-labelledby="footer-ho-tro-title">
+          <h3 id="footer-ho-tro-title" class="font-display text-sm font-bold uppercase tracking-wide text-ink-invert">Hỗ trợ</h3>
           <ul class="mt-3 space-y-2 text-sm">
             <li><a href="#cau-hoi" class="hover:text-ink-invert">Câu hỏi thường gặp</a></li>
             <li><a href="#dang-ky" class="hover:text-ink-invert">Mở tài khoản</a></li>
