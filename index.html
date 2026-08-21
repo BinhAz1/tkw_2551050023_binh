@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="dist/output.css">
 </head>
 
-<body class="bg-surface font-body text-ink antialiased">
+<body>
 
   <a href="#main" class="skip-link">Bỏ qua đến nội dung chính</a>
 
@@ -46,27 +46,42 @@
   <header class="sticky top-0 z-40 border-b border-line bg-surface/90 backdrop-blur">
     <div class="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-5 py-4">
 
-      <a href="#main" class="flex shrink-0 items-center gap-2">
+      <a href="index.html" class="flex shrink-0 items-center gap-2">
         <span class="grid h-9 w-9 place-items-center rounded-card bg-brand-600 font-display text-lg font-extrabold text-white">N</span>
         <span class="font-display text-lg font-bold tracking-tight">napthe1s</span>
       </a>
 
       <nav aria-label="Điều hướng chính" class="hidden lg:block">
         <ul class="flex items-center gap-6 text-sm font-medium text-muted">
-          <li><a href="#mua-ma-the" class="hover:text-brand-600">Mua mã thẻ</a></li>
-          <li><a href="#doi-ma-the" class="hover:text-brand-600">Đổi mã thẻ</a></li>
-          <li><a href="#nap-the-cao" class="hover:text-brand-600">Nạp thẻ cào</a></li>
-          <li><a href="#nap-tien" class="hover:text-brand-600">Nạp tiền</a></li>
-          <li><a href="#rut-tien" class="hover:text-brand-600">Rút tiền</a></li>
-          <li><a href="#cau-hoi" class="hover:text-brand-600">Hỗ trợ</a></li>
+          <li><a href="index.html#dich-vu" class="hover:text-brand-700">Dịch vụ</a></li>
+          <li><a href="pricing.html" class="hover:text-brand-700">Bảng giá</a></li>
+          <li><a href="contact.html" class="hover:text-brand-700">Liên hệ</a></li>
+          <li><a href="index.html#cau-hoi" class="hover:text-brand-700">Câu hỏi</a></li>
         </ul>
       </nav>
 
       <div class="flex shrink-0 items-center gap-2">
         <a href="#dang-ky" class="btn btn-ghost hidden sm:inline-flex">Đăng nhập</a>
         <a href="#dang-ky" class="btn btn-primary">Đăng ký</a>
+
+        <!-- Nút hamburger: buổi 4 mới gắn JS để bật/tắt menu -->
+        <button type="button" class="btn btn-ghost px-2.5 lg:hidden" aria-label="Mở menu" aria-expanded="false" aria-controls="menu-mobile">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+        </button>
       </div>
     </div>
+
+    <!-- Menu mobile, mặc định ẩn; buổi 4 dùng JS bỏ class hidden -->
+    <nav id="menu-mobile" aria-label="Điều hướng phụ" class="hidden border-t border-line lg:hidden">
+      <ul class="mx-auto flex w-full max-w-6xl flex-col gap-1 px-5 py-3 text-sm font-medium text-muted">
+        <li><a href="index.html#dich-vu" class="block py-2 hover:text-brand-700">Dịch vụ</a></li>
+        <li><a href="pricing.html" class="block py-2 hover:text-brand-700">Bảng giá</a></li>
+        <li><a href="contact.html" class="block py-2 hover:text-brand-700">Liên hệ</a></li>
+        <li><a href="index.html#cau-hoi" class="block py-2 hover:text-brand-700">Câu hỏi</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main id="main">
@@ -76,7 +91,7 @@
       <div class="section grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
 
         <div>
-          <p class="mb-4 inline-flex rounded-pill bg-brand-100 px-4 py-1.5 text-sm font-semibold text-brand-700">
+          <p class="eyebrow mb-4">
             Mở tài khoản miễn phí siêu tốc
           </p>
 
@@ -98,7 +113,7 @@
           </p>
         </div>
 
-        <div class="rounded-card border border-line bg-surface p-8 shadow-sm lg:mt-12">
+        <div class="card p-8 shadow-sm lg:mt-12">
           <ul aria-label="Các loại thẻ đang hỗ trợ" class="grid grid-cols-3 gap-x-6 gap-y-9">
             <li class="flex h-12 items-center justify-center">
               <img src="assets/img/viettel.png" alt="Thẻ Viettel" class="max-h-full w-auto object-contain" width="165" height="86">
@@ -159,7 +174,7 @@
 
         <ul class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <li id="mua-ma-the" class="card scroll-mt-24">
-            <span class="grid h-11 w-11 place-items-center rounded-lg bg-brand-50 text-brand-600">
+            <span class="grid h-11 w-11 place-items-center rounded-lg bg-brand-50 text-brand-700">
               <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/>
               </svg>
@@ -168,7 +183,7 @@
             <p class="mt-2 text-muted">Chọn nhà mạng và mệnh giá, thanh toán xong nhận ngay mã seri và mã thẻ trên màn hình.</p>
           </li>
           <li id="doi-ma-the" class="card scroll-mt-24">
-            <span class="grid h-11 w-11 place-items-center rounded-lg bg-brand-50 text-brand-600">
+            <span class="grid h-11 w-11 place-items-center rounded-lg bg-brand-50 text-brand-700">
               <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M3 9h14l-4-4"/><path d="M21 15H7l4 4"/>
               </svg>
@@ -177,7 +192,7 @@
             <p class="mt-2 text-muted">Gửi mã thẻ chưa dùng để quy đổi thành tiền vào ví. Chiết khấu theo hạng khách hàng chưa xác minh/đã xác minh/ đại lý, hạng càng cao chiết khấu càng thấp.</p>
           </li>
           <li id="nap-tien" class="card scroll-mt-24">
-            <span class="grid h-11 w-11 place-items-center rounded-lg bg-brand-50 text-brand-600">
+            <span class="grid h-11 w-11 place-items-center rounded-lg bg-brand-50 text-brand-700">
               <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M12 3v10"/><path d="M8 9l4 4 4-4"/><path d="M3 15v4a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4"/>
               </svg>
@@ -186,7 +201,7 @@
             <p class="mt-2 text-muted">Chuyển khoản ngân hàng hoặc quét mã QR, ví cộng tự động sau 1–2 phút. Quá thời gian 5p vui lòng nhắn hỗ trợ.</p>
           </li>
           <li id="rut-tien" class="card scroll-mt-24">
-            <span class="grid h-11 w-11 place-items-center rounded-lg bg-brand-50 text-brand-600">
+            <span class="grid h-11 w-11 place-items-center rounded-lg bg-brand-50 text-brand-700">
               <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M12 21V11"/><path d="M8 15l4-4 4 4"/><path d="M3 9V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4"/>
               </svg>
@@ -195,7 +210,7 @@
             <p class="mt-2 text-muted">Rút về tài khoản ngân hàng, ví điện tử. Đơn sẽ được xử lý trong 3 giờ, chậm nhất trong 24 giờ làm việc.</p>
           </li>
           <li id="nap-the-cao" class="card scroll-mt-24">
-            <span class="grid h-11 w-11 place-items-center rounded-lg bg-brand-50 text-brand-600">
+            <span class="grid h-11 w-11 place-items-center rounded-lg bg-brand-50 text-brand-700">
               <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect x="6" y="2" width="12" height="20" rx="2"/><path d="M13 7l-3 5h4l-3 5"/>
               </svg>
@@ -216,17 +231,17 @@
 
         <ol class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <li class="card flex flex-col gap-3">
-            <span class="font-display text-sm font-extrabold tracking-wide text-brand-600">01</span>
+            <span class="font-display text-sm font-extrabold tracking-wide text-brand-700">01</span>
             <h3 class="font-display text-lg font-bold">Tạo tài khoản</h3>
             <p class="text-muted">Đăng ký bằng số điện thoại rồi xác minh mã OTP. Mất khoảng 2 phút, chưa phải nạp đồng nào.</p>
           </li>
           <li class="card flex flex-col gap-3">
-            <span class="font-display text-sm font-extrabold tracking-wide text-brand-600">02</span>
+            <span class="font-display text-sm font-extrabold tracking-wide text-brand-700">02</span>
             <h3 class="font-display text-lg font-bold">Nạp tiền vào ví</h3>
             <p class="text-muted">Chuyển khoản hoặc quét mã QR, tối thiểu 10.000đ. Ví cộng tự động sau 1–2 phút.</p>
           </li>
           <li class="card flex flex-col gap-3">
-            <span class="font-display text-sm font-extrabold tracking-wide text-brand-600">03</span>
+            <span class="font-display text-sm font-extrabold tracking-wide text-brand-700">03</span>
             <h3 class="font-display text-lg font-bold">Chọn dịch vụ và bấm</h3>
             <p class="text-muted">Mua mã thẻ, đổi thẻ hay nạp thẻ cào. Tiền trừ thẳng trong ví, đơn xong trong 30 giây.</p>
           </li>
@@ -244,19 +259,19 @@
         <dl class="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-line">
           <div class="flex flex-col text-center lg:px-6">
             <dt class="order-2 mt-2 text-sm text-muted">Thời gian nạp trung bình</dt>
-            <dd class="font-display text-4xl font-extrabold text-brand-600">8-30 giây</dd>
+            <dd class="font-display text-4xl font-extrabold text-brand-700">8-30 giây</dd>
           </div>
           <div class="flex flex-col text-center lg:px-6">
             <dt class="order-2 mt-2 text-sm text-muted">Đại lý/khách hàng đang hoạt động</dt>
-            <dd class="font-display text-4xl font-extrabold text-brand-600">2.800</dd>
+            <dd class="font-display text-4xl font-extrabold text-brand-700">2.800</dd>
           </div>
           <div class="flex flex-col text-center lg:px-6">
             <dt class="order-2 mt-2 text-sm text-muted">Đơn thành công ngay lần đầu</dt>
-            <dd class="font-display text-4xl font-extrabold text-brand-600">99,4%</dd>
+            <dd class="font-display text-4xl font-extrabold text-brand-700">99,4%</dd>
           </div>
           <div class="flex flex-col text-center lg:px-6">
             <dt class="order-2 mt-2 text-sm text-muted">Nhà cung cấp đã nối</dt>
-            <dd class="font-display text-4xl font-extrabold text-brand-600">15</dd>
+            <dd class="font-display text-4xl font-extrabold text-brand-700">15</dd>
           </div>
         </dl>
       </div>
@@ -410,15 +425,15 @@
         <h2 id="dang-ky-title" class="mx-auto max-w-2xl font-display text-3xl font-bold tracking-tight text-white lg:text-4xl">
           Mở tài khoản 
         </h2>
-        <p class="mx-auto mt-4 max-w-xl text-brand-100">
+        <p class="mx-auto mt-4 max-w-xl text-ink-invert">
           Hạng Thường không mất phí mở, không phí duy trì. Nạp 10.000đ vào ví là có thể sài đầy đủ chức năng, mua thẻ và nạp thẻ cào.
         </p>
 
         <form class="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row">
           <label for="sdt" class="sr-only">Số điện thoại</label>
           <input id="sdt" name="sdt" type="tel" required placeholder="Số điện thoại của bạn"
-                 class="w-full rounded-pill border border-brand-500 bg-white px-5 py-2.5 text-sm text-ink placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent-400">
-          <button type="submit" class="btn shrink-0 whitespace-nowrap bg-white text-brand-700 hover:bg-brand-50">Mở tài khoản</button>
+                 class="field-input mt-0 rounded-pill px-5">
+          <button type="submit" class="btn shrink-0 whitespace-nowrap bg-white text-brand-900 hover:opacity-90">Mở tài khoản</button>
         </form>
       </div>
     </section>
@@ -438,19 +453,19 @@
         <nav aria-labelledby="footer-san-pham-title">
           <h3 id="footer-san-pham-title" class="font-display text-sm font-bold uppercase tracking-wide text-ink-invert">Sản phẩm</h3>
           <ul class="mt-3 space-y-2 text-sm">
-            <li><a href="#dich-vu" class="hover:text-ink-invert">Dịch vụ</a></li>
-            <li><a href="#chiet-khau" class="hover:text-ink-invert">Đại lý</a></li>
-            <li><a href="#so-lieu" class="hover:text-ink-invert">Số liệu</a></li>
+            <li><a href="index.html#dich-vu" class="hover:text-ink-invert">Dịch vụ</a></li>
+            <li><a href="pricing.html" class="hover:text-ink-invert">Bảng giá</a></li>
+            <li><a href="index.html#so-lieu" class="hover:text-ink-invert">Số liệu</a></li>
           </ul>
         </nav>
 
         <nav aria-labelledby="footer-ho-tro-title">
           <h3 id="footer-ho-tro-title" class="font-display text-sm font-bold uppercase tracking-wide text-ink-invert">Hỗ trợ</h3>
           <ul class="mt-3 space-y-2 text-sm">
-            <li><a href="#cau-hoi" class="hover:text-ink-invert">Câu hỏi thường gặp</a></li>
-            <li><a href="#dang-ky" class="hover:text-ink-invert">Mở tài khoản</a></li>
-            <li><a href="#dang-ky" class="hover:text-ink-invert">Tài khoản bị khóa</a></li>
-            <li><a href="#dang-ky" class="hover:text-ink-invert">Nap/Rut</a></li>
+            <li><a href="index.html#cau-hoi" class="hover:text-ink-invert">Câu hỏi thường gặp</a></li>
+            <li><a href="contact.html" class="hover:text-ink-invert">Liên hệ</a></li>
+            <li><a href="pricing.html#so-sanh" class="hover:text-ink-invert">So sánh hạng</a></li>
+            <li><a href="index.html#dang-ky" class="hover:text-ink-invert">Mở tài khoản</a></li>
           </ul>
         </nav>
 
