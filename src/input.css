@@ -51,9 +51,10 @@
     @apply mx-auto w-full max-w-6xl px-5 py-20 lg:py-28;
   }
 
+  /* border-transparent để mọi nút cao bằng nhau, dù có viền hay không */
   .btn {
     @apply inline-flex items-center justify-center gap-2 rounded-pill
-           px-5 py-2.5 text-sm font-semibold transition-colors;
+           border border-transparent px-5 py-2.5 text-sm font-semibold transition-colors;
   }
 
   .btn-primary {
@@ -61,11 +62,15 @@
   }
 
   .btn-ghost {
-    @apply border border-line text-ink hover:bg-brand-50;
+    @apply border-line text-ink hover:bg-brand-50;
   }
 
   .card {
     @apply rounded-card border border-line bg-surface p-6;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-pill px-3 py-1 text-xs font-bold;
   }
 
   .skip-link {
