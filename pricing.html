@@ -28,9 +28,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="dist/output.css">
+
+  <!-- Đặt inline trong <head> và chạy đồng bộ để tránh nháy trắng:
+       nếu để trong main.js (cuối body) thì trình duyệt đã kịp vẽ nền sáng.
+       Lựa chọn của người dùng thắng cài đặt hệ điều hành. -->
+  <script>
+    (function () {
+      var saved = localStorage.getItem("theme");
+      var dark = saved ? saved === "dark"
+                       : window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.classList.toggle("dark", dark);
+      document.documentElement.classList.add("js"); // co JS -> cho phep an de lo dan
+    })();
+  </script>
 </head>
 
 <body>
+
+  <div id="nav-sentinel" aria-hidden="true"></div>
 
   <a href="#main" class="skip-link">Bỏ qua đến nội dung chính</a>
 
@@ -56,8 +71,18 @@
         <a href="contact.html" class="btn btn-ghost hidden sm:inline-flex">Đăng nhập</a>
         <a href="contact.html" class="btn btn-primary">Đăng ký</a>
 
+        <button type="button" data-theme-toggle
+                class="btn btn-ghost px-2.5" aria-pressed="false" aria-label="Chuyển sang chế độ tối">
+          <svg data-icon-sang class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+          </svg>
+          <svg data-icon-toi class="hidden h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+          </svg>
+        </button>
+
         <!-- Nút hamburger: buổi 4 mới gắn JS để bật/tắt menu -->
-        <button type="button" class="btn btn-ghost px-2.5 lg:hidden" aria-label="Mở menu" aria-expanded="false" aria-controls="menu-mobile">
+        <button type="button" data-menu-toggle class="btn btn-ghost px-2.5 lg:hidden" aria-label="Mở menu" aria-expanded="false" aria-controls="menu-mobile">
           <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
             <path d="M4 7h16M4 12h16M4 17h16"/>
           </svg>
@@ -99,12 +124,25 @@
           Ba hạng đại lý
         </h2>
 
-        <ul class="mt-14 grid items-stretch gap-6 lg:grid-cols-3">
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <span id="nhan-thang" class="text-sm font-semibold">Trả theo tháng</span>
+          <button type="button" data-price-switch role="switch" aria-checked="false"
+                  aria-labelledby="nhan-thang nhan-nam"
+                  class="group relative h-6 w-11 shrink-0 rounded-pill bg-line transition-colors
+                         aria-checked:bg-brand-600
+                         focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">
+            <span class="pointer-events-none absolute left-0.5 top-0.5 h-5 w-5 rounded-pill bg-surface shadow-sm transition-transform group-aria-checked:translate-x-5"></span>
+          </button>
+          <span id="nhan-nam" class="text-sm font-semibold">Trả theo năm</span>
+          <span class="badge bg-brand-100 text-brand-700">Tiết kiệm 2 tháng</span>
+        </div>
+
+        <ul data-reveal class="mt-6 grid items-stretch gap-6 lg:grid-cols-3">
 
           <li class="card flex h-full flex-col gap-4">
             <h3 class="font-display text-lg font-bold">Khách hàng</h3>
             <div>
-              <p class="font-display text-3xl font-extrabold">0đ</p>
+              <p class="font-display text-3xl font-extrabold"><span data-price data-monthly="0" data-yearly="0">0đ</span></p>
               <p class="mt-1 text-sm text-muted">Chiết khấu <span class="font-semibold text-accent-500">3,2%</span> mỗi đơn</p>
             </div>
             <ul class="space-y-2 text-sm text-muted">
@@ -119,7 +157,7 @@
             <span class="badge absolute -top-3 left-6 bg-brand-600 text-white">Nhiều đại lý chọn nhất</span>
             <h3 class="font-display text-lg font-bold">Bạc</h3>
             <div>
-              <p class="font-display text-3xl font-extrabold">199.000đ<span class="text-base font-medium text-muted">/tháng</span></p>
+              <p class="font-display text-3xl font-extrabold"><span data-price data-monthly="199000" data-yearly="1990000">199.000đ</span><span data-price-unit class="text-base font-medium text-muted">/tháng</span></p>
               <p class="mt-1 text-sm text-muted">Chiết khấu <span class="font-semibold text-accent-500">4,1%</span> mỗi đơn</p>
             </div>
             <ul class="space-y-2 text-sm text-muted">
@@ -133,7 +171,7 @@
           <li class="card flex h-full flex-col gap-4">
             <h3 class="font-display text-lg font-bold">Vàng</h3>
             <div>
-              <p class="font-display text-3xl font-extrabold">599.000đ<span class="text-base font-medium text-muted">/tháng</span></p>
+              <p class="font-display text-3xl font-extrabold"><span data-price data-monthly="599000" data-yearly="5990000">599.000đ</span><span data-price-unit class="text-base font-medium text-muted">/tháng</span></p>
               <p class="mt-1 text-sm text-muted">Chiết khấu <span class="font-semibold text-accent-500">4,8%</span> mỗi đơn</p>
             </div>
             <ul class="space-y-2 text-sm text-muted">
@@ -235,31 +273,97 @@
           </p>
         </div>
 
-        <ul class="grid gap-4 sm:grid-cols-2">
-          <li class="card">
-            <h3 class="font-display text-lg font-bold">Trả phí thuê bao bằng cách nào?</h3>
-            <p class="mt-2 text-muted">Trừ thẳng từ số dư ví vào ngày đăng ký hằng tháng. Ví không đủ tiền thì hạng tự hạ về Khách hàng, không bị khoá tài khoản.</p>
-          </li>
-          <li class="card">
-            <h3 class="font-display text-lg font-bold">Đổi hạng giữa tháng thì tính sao?</h3>
-            <p class="mt-2 text-muted">Nâng hạng thì trừ phần chênh lệch theo số ngày còn lại. Hạ hạng thì giữ nguyên quyền lợi tới hết chu kỳ đã trả.</p>
-          </li>
-          <li class="card">
-            <h3 class="font-display text-lg font-bold">Chiết khấu tính vào lúc nào?</h3>
-            <p class="mt-2 text-muted">Ngay trong đơn đó. Hạng Bạc nạp thẻ 100.000đ thì ví trừ 95.900đ, không phải chờ đối soát cuối tháng.</p>
-          </li>
-          <li class="card">
-            <h3 class="font-display text-lg font-bold">Có hoàn phí khi ngừng dùng không?</h3>
-            <p class="mt-2 text-muted">Phí thuê bao đã trừ không hoàn lại, nhưng số dư ví thì rút về ngân hàng bất cứ lúc nào.</p>
-          </li>
-          <li class="card">
-            <h3 class="font-display text-lg font-bold">Nạp tiền vào ví tối thiểu bao nhiêu?</h3>
-            <p class="mt-2 text-muted">10.000đ cho cả ba hạng. Chuyển khoản hoặc quét mã QR, ví cộng tự động sau 1–2 phút.</p>
-          </li>
-          <li class="card">
-            <h3 class="font-display text-lg font-bold">Xuất hoá đơn được không?</h3>
-            <p class="mt-2 text-muted">Được với hạng Bạc và Vàng. Khai thông tin công ty trong phần Cài đặt, hoá đơn gửi qua email vào ngày 5 hằng tháng.</p>
-          </li>
+        <ul id="faq" data-reveal class="grid gap-4">
+          <li class="card p-0">
+              <h3>
+                <button type="button" data-faq-trigger id="faqtt-t1" aria-expanded="false" aria-controls="faqtt-p1"
+                        class="flex w-full items-center justify-between gap-4 rounded-card p-6 text-left font-display text-lg font-bold
+                               focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">
+                  <span>Trả phí thuê bao bằng cách nào?</span>
+                  <svg data-faq-icon class="h-5 w-5 shrink-0 text-brand-700 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="m6 9 6 6 6-6"/>
+                  </svg>
+                </button>
+              </h3>
+              <div id="faqtt-p1" role="region" aria-labelledby="faqtt-t1" class="hidden px-6 pb-6">
+                <p class="text-muted">Trừ thẳng từ số dư ví vào ngày đăng ký hằng tháng. Ví không đủ tiền thì hạng tự hạ về Khách hàng, không bị khoá tài khoản.</p>
+              </div>
+            </li>
+          <li class="card p-0">
+              <h3>
+                <button type="button" data-faq-trigger id="faqtt-t2" aria-expanded="false" aria-controls="faqtt-p2"
+                        class="flex w-full items-center justify-between gap-4 rounded-card p-6 text-left font-display text-lg font-bold
+                               focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">
+                  <span>Đổi hạng giữa tháng thì tính sao?</span>
+                  <svg data-faq-icon class="h-5 w-5 shrink-0 text-brand-700 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="m6 9 6 6 6-6"/>
+                  </svg>
+                </button>
+              </h3>
+              <div id="faqtt-p2" role="region" aria-labelledby="faqtt-t2" class="hidden px-6 pb-6">
+                <p class="text-muted">Nâng hạng thì trừ phần chênh lệch theo số ngày còn lại. Hạ hạng thì giữ nguyên quyền lợi tới hết chu kỳ đã trả.</p>
+              </div>
+            </li>
+          <li class="card p-0">
+              <h3>
+                <button type="button" data-faq-trigger id="faqtt-t3" aria-expanded="false" aria-controls="faqtt-p3"
+                        class="flex w-full items-center justify-between gap-4 rounded-card p-6 text-left font-display text-lg font-bold
+                               focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">
+                  <span>Chiết khấu tính vào lúc nào?</span>
+                  <svg data-faq-icon class="h-5 w-5 shrink-0 text-brand-700 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="m6 9 6 6 6-6"/>
+                  </svg>
+                </button>
+              </h3>
+              <div id="faqtt-p3" role="region" aria-labelledby="faqtt-t3" class="hidden px-6 pb-6">
+                <p class="text-muted">Ngay trong đơn đó. Hạng Bạc nạp thẻ 100.000đ thì ví trừ 95.900đ, không phải chờ đối soát cuối tháng.</p>
+              </div>
+            </li>
+          <li class="card p-0">
+              <h3>
+                <button type="button" data-faq-trigger id="faqtt-t4" aria-expanded="false" aria-controls="faqtt-p4"
+                        class="flex w-full items-center justify-between gap-4 rounded-card p-6 text-left font-display text-lg font-bold
+                               focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">
+                  <span>Có hoàn phí khi ngừng dùng không?</span>
+                  <svg data-faq-icon class="h-5 w-5 shrink-0 text-brand-700 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="m6 9 6 6 6-6"/>
+                  </svg>
+                </button>
+              </h3>
+              <div id="faqtt-p4" role="region" aria-labelledby="faqtt-t4" class="hidden px-6 pb-6">
+                <p class="text-muted">Phí thuê bao đã trừ không hoàn lại, nhưng số dư ví thì rút về ngân hàng bất cứ lúc nào.</p>
+              </div>
+            </li>
+          <li class="card p-0">
+              <h3>
+                <button type="button" data-faq-trigger id="faqtt-t5" aria-expanded="false" aria-controls="faqtt-p5"
+                        class="flex w-full items-center justify-between gap-4 rounded-card p-6 text-left font-display text-lg font-bold
+                               focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">
+                  <span>Nạp tiền vào ví tối thiểu bao nhiêu?</span>
+                  <svg data-faq-icon class="h-5 w-5 shrink-0 text-brand-700 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="m6 9 6 6 6-6"/>
+                  </svg>
+                </button>
+              </h3>
+              <div id="faqtt-p5" role="region" aria-labelledby="faqtt-t5" class="hidden px-6 pb-6">
+                <p class="text-muted">10.000đ cho cả ba hạng. Chuyển khoản hoặc quét mã QR, ví cộng tự động sau 1–2 phút.</p>
+              </div>
+            </li>
+          <li class="card p-0">
+              <h3>
+                <button type="button" data-faq-trigger id="faqtt-t6" aria-expanded="false" aria-controls="faqtt-p6"
+                        class="flex w-full items-center justify-between gap-4 rounded-card p-6 text-left font-display text-lg font-bold
+                               focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">
+                  <span>Xuất hoá đơn được không?</span>
+                  <svg data-faq-icon class="h-5 w-5 shrink-0 text-brand-700 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="m6 9 6 6 6-6"/>
+                  </svg>
+                </button>
+              </h3>
+              <div id="faqtt-p6" role="region" aria-labelledby="faqtt-t6" class="hidden px-6 pb-6">
+                <p class="text-muted">Được với hạng Bạc và Vàng. Khai thông tin công ty trong phần Cài đặt, hoá đơn gửi qua email vào ngày 5 hằng tháng.</p>
+              </div>
+            </li>
         </ul>
       </div>
     </section>
@@ -328,6 +432,17 @@
       </p>
     </div>
   </footer>
+
+
+  <!-- Nút lên đầu trang: hiện khi đã cuộn quá 400px -->
+  <button type="button" data-to-top aria-label="Lên đầu trang"
+          class="btn btn-primary pointer-events-none fixed bottom-6 right-6 z-40 h-11 w-11 translate-y-2 px-0 opacity-0 shadow-sm transition">
+    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <script type="module" src="js/main.js"></script>
 
 </body>
 </html>
