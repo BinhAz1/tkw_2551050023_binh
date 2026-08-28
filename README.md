@@ -3,7 +3,7 @@
 Chủ đề : Nap the / gach the truc tuyen
 sản phẩm : napthe1s - cong nap the tu dong 
 Màu thương hiệu : màu xanh lá đậm #14705a
-màu nhấn: vàng hổ phách #d99a15
+màu nhấn: vàng hổ phách #f0b429 (nền) / #8a6209 (chữ)
 màu chữ : #12211d (đen ngả xanh)
 màu chữ phụ: #5c6f69 (xám xanh)
 màu nền : trắng #ffffff
@@ -23,7 +23,7 @@ bo góc thẻ: 0.875rem = 14px
 
 --color-accent-300: #f7d27a
 --color-accent-400: #f0b429
---color-accent-500: #d99a15
+--color-accent-500: #8a6209   - dùng cho CHỮ, đậm hơn nền cho đủ tương phản
 
 --color-ink: #12211d
 --color-ink-invert: #eaf2ee
@@ -146,3 +146,52 @@ py-20 lg:py-24   - dải đại lý và footer
    tiêu đề, text-muted cho mô tả, text-brand-600 cho số thứ tự, gap-6 cho lưới.
    Không thêm màu mới, không thêm giá trị spacing mới.
    Dùng thẻ <ol> vì ba bước thật sự có thứ tự: tạo tài khoản -> nạp tiền -> bấm nạp.
+
+
+==================================================
+BUỔI 3 - RESPONSIVE, DARK MODE, COMPONENT, FORM
+==================================================
+
+Ba trang: index.html, pricing.html, contact.html
+Kiểm thử ở 360 / 768 / 1024 / 1440, không trang nào có scroll ngang.
+
+Bốn chỗ vỡ layout và cách sửa:
+1. Hero hai cột   -> lg:grid-cols-2, dưới lg tự xếp dọc
+2. Lưới dịch vụ   -> sm:grid-cols-2 lg:grid-cols-3
+3. Bảng so sánh   -> overflow-x-auto + min-w-[720px], kèm dòng nhắc vuốt ngang
+4. Footer bốn cột -> sm:grid-cols-2 lg:grid-cols-4
+
+Menu desktop ẩn dưới lg, đã chừa sẵn nút hamburger, buổi 4 mới gắn JS.
+
+Dark mode:
+Đảo giá trị token trong khối .dark ở src/input.css, không rải dark: khắp HTML.
+Nền tối #0e1c19 ngả xanh lá chứ không dùng #000, chữ sáng #eaf2ee chứ không
+dùng #fff, bóng đổ đổi sang viền. Kiểm tra bằng cách thêm class="dark" vào
+thẻ <html> trong DevTools.
+
+Component: 11 cái trong @layer components, dùng chung cho cả ba trang.
+
+Form contact.html: 7 trường, 6 kiểu. Nhãn thật nối for/id, có aria-describedby
+và role="alert". Không dùng placeholder thay nhãn.
+
+URL công khai: https://binhaz1.github.io/tkw_2551050023_binh/
+
+
+4 câu tự kiểm tra:
+
+1. md:text-lg áp dụng từ 768px trở LÊN, không phải chỉ ở đúng mốc md.
+
+2. Cặp token chỉ cần đảo giá trị ở một khối .dark nên CSS không bị nhân đôi.
+   Rải dark: từng chỗ dễ sót, sót một chỗ là lòi mảng sáng giữa nền tối.
+
+3. Bảng so sánh chọn cách cuộn ngang. Cách kia là bẻ bảng thành thẻ xếp dọc,
+   nhưng làm vậy mất khả năng so sánh theo hàng, mà đó chính là lý do người ta
+   mở bảng so sánh. Đổi lại phải nhắc người dùng vuốt ngang.
+
+4. Placeholder biến mất ngay khi bắt đầu gõ, lại không bấm được để nhảy vào ô,
+   tương phản thường quá nhạt và trình đọc màn hình đọc không đáng tin.
+
+Sẽ làm lại nếu có thêm thời gian:
+Header và footer đang bị chép tay ba lần ở ba file. HTML thuần không có cách
+nhúng một mảnh dùng chung, phải tách thành component và dùng framework mới
+giải quyết được.
