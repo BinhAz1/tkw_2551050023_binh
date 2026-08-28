@@ -195,3 +195,82 @@ Sẽ làm lại nếu có thêm thời gian:
 Header và footer đang bị chép tay ba lần ở ba file. HTML thuần không có cách
 nhúng một mảnh dùng chung, phải tách thành component và dùng framework mới
 giải quyết được.
+
+
+==================================================
+BUỔI 4 - JAVASCRIPT: DOM VÀ TƯƠNG TÁC
+==================================================
+
+Không dùng thư viện ngoài.
+
+Kiến trúc: 8 file trong js/, main.js chỉ import và gọi init, không chứa logic.
+main.js  nav.js  theme.js  faq.js  pricing.js  slider.js  reveal.js  copy.js
+Mỗi hàm init mở đầu bằng câu kiểm tra "không có phần tử thì thoát êm", nhờ vậy
+một main.js dùng chung được cho cả ba trang. Nạp bằng <script type="module">
+đặt cuối body nên không cần DOMContentLoaded.
+
+Bảy tính năng bắt buộc:
+
+1. Menu mobile - nav.js
+   Hàm setOpen chạm bốn thứ cùng lúc: class hidden, aria-expanded, aria-label,
+   và overflow-hidden trên body để chặn nền cuộn sau lưng menu.
+   Ba cách đóng: phím ESC kèm trả tiêu điểm về nút, bấm ra ngoài header,
+   và khi màn hình phóng lên desktop.
+
+2. Navbar khi cuộn - nav.js
+   IntersectionObserver theo dõi #nav-sentinel, một div rỗng đặt đầu body.
+   Không dùng sự kiện scroll vì nó bắn hàng trăm lần mỗi giây.
+
+3. Accordion FAQ - faq.js
+   Một listener cho cả nhóm thay vì mỗi nút một listener.
+   e.target.closest() lo trường hợp bấm trúng icon SVG bên trong nút.
+   Cách làm: đóng hết rồi mở đúng cái vừa bấm, không cần biến trạng thái riêng.
+
+4. Dark mode - theme.js + script inline trong head
+   Script inline chạy đồng bộ trước khi trang vẽ, nên không nháy trắng.
+   Thứ tự ưu tiên: localStorage thắng prefers-color-scheme.
+
+5. Công tắc giá - pricing.js
+   Số tiền nằm trong data-monthly và data-yearly ở HTML, không nằm trong JS.
+   Intl.NumberFormat("vi-VN") lo dấu chấm hàng nghìn và ký hiệu tiền tệ.
+   Nút dùng role="switch" + aria-checked, CSS bắt trạng thái đó bằng
+   aria-checked:bg-brand-600, không cần class riêng.
+
+6. Slider cảm nhận - slider.js
+   (next + slides.length) % slides.length lo cả hai đầu bằng một dòng.
+   inert cho slide đang ẩn, không có nó thì Tab rơi vào slide vô hình.
+   Chấm chỉ dẫn sinh bằng JS từ số slide thật.
+   Dừng khi hover, khi focusin, và khi tab bị ẩn; luôn clearInterval trước
+   khi đặt cái mới.
+
+7. Lộ dần khi cuộn - reveal.js
+   Tôn trọng prefers-reduced-motion: hiện luôn, không animate.
+   unobserve ngay sau khi phần tử đã hiện.
+   CSS chỉ ẩn khi <html> có class .js, nên không có JS thì nội dung vẫn hiện
+   bình thường thay vì ẩn vĩnh viễn.
+
+
+4 câu tự kiểm tra:
+
+1. Event delegation là gắn một listener ở phần tử cha thay vì gắn cho từng nút
+   con. Ở accordion nó cần thiết vì số mục có thể đổi, và vì bấm trúng icon SVG
+   thì e.target là <svg> chứ không phải <button> - closest() leo ngược lên tìm.
+
+2. Script dark mode phải inline trong <head> vì main.js đặt cuối body chỉ chạy
+   sau khi trình duyệt đã vẽ xong nền sáng, người dùng sẽ thấy một cú chớp trắng
+   ở mỗi lần tải trang. Đây là ngoại lệ duy nhất của quy tắc không viết JS trong HTML.
+
+3. IntersectionObserver chỉ báo đúng hai lần, lúc vào và lúc ra khung nhìn.
+   Sự kiện scroll bắn hàng trăm lần mỗi giây, gây giật khi cuộn.
+
+4. Bỏ inert thì người dùng bàn phím nhấn Tab sẽ rơi vào các slide vô hình nằm
+   ngoài màn hình, tiêu điểm biến mất mà họ không hiểu vì sao.
+
+
+Bài về nhà - nút sao chép ở trang liên hệ (copy.js):
+
+Người dùng gặp lỗi đơn nạp thường đang cầm điện thoại, phải gọi hotline ngay.
+Gõ tay số 10 chữ số dễ sai một số rồi gọi nhầm, còn bôi đen để chép trên màn hình
+cảm ứng thì rất khó trúng.
+Nút này chép sẵn số vào bộ nhớ tạm để dán thẳng vào ứng dụng gọi điện, và báo
+"Đã sao chép" qua vùng role="status" để trình đọc màn hình cũng biết là đã xong.
